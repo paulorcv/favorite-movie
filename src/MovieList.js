@@ -9,7 +9,7 @@ class MovieList extends Component{
     
     const listOfMovies = Object.keys(movies).map(id =>{
         let movie = movies[id];
-        return <h2 className={id}>{movie.name}</h2>;
+        return <h2 key={id}>{movie.name}</h2>;
     });
 
     return listOfMovies;
