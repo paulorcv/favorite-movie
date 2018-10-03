@@ -100,7 +100,29 @@ const movies = {
 
 class App extends Component {
   
-  
+  constructor(props){
+    super(props);
+    this.usersByMovie = {};
+
+    /*
+    We can map the users by the movie they liked.
+    */
+    profiles.forEach(profile => {
+      const movieID = profile.favoriteMovieID;
+
+      if (this.usersByMovie[movieID]) {
+        this.usersByMovie[movieID].push(profile.userID);
+      } else {
+        this.usersByMovie[movieID] = [profile.userID];
+      }
+    });
+
+    // console.log(profiles);
+    // console.log(this.usersByMovie);
+    
+  }
+
+
   render() {
     return (
       <div className="App">
@@ -109,7 +131,7 @@ class App extends Component {
           <h1 className="App-title">ReactND - Coding Practice</h1>
         </header>
         <h2>How Popular is Your Favorite Movie?</h2>
-			<MovieList movies={movies} users={users} profiles={profiles}/>
+			<MovieList movies={movies} users={users} usersByMovie={this.usersByMovie}/>
 		</div>
     );
   }

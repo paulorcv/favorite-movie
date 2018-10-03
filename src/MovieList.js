@@ -5,13 +5,15 @@ class MovieList extends Component{
   render(){
     const movies = this.props.movies;
     const users = this.props.users;
-    const profiles = this.props.profiles;
+    const usersByMovie = this.props.usersByMovie;
     
-    const listOfMovies = Object.keys(movies).map(key=>{
-     	let movie = movies[key];	
-      	return <li key={movie.id}><p>{movie.name}</p></li> 
+    const listOfMovies = Object.keys(movies).map(id =>{
+        let movie = movies[id];
+        return <h2 className={id}>{movie.name}</h2>;
     });
-    return <ul>{listOfMovies}</ul>;
+
+    return listOfMovies;
+    
   } 
 }
 
