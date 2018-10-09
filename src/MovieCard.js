@@ -9,7 +9,7 @@ class MovieCard extends Component{
     const usersByMovie = this.props.usersByMovie;
     
     return (
-       Object.keys(usersByMovie).map((key)=>{
+       Object.keys(movies).map((key)=>{
         return(
           <div key={key}>
             <h2>{movies[key].name}</h2>
